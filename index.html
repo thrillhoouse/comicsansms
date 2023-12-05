@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .button {
+      background-color: #454141;
+      font-family: "Comic Sans ms";
+      border-radius: 10px;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition-duration: 0.4s;
+    }
+    .coolbutton {
+      color: black;
+       background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+      border-color: black;
+      display: none;
+    }
+    .coolbutton:hover {
+      background-image: "confetti.jpg";
+    }
+   body {
+    background-color: black;
+    text-align: center;
+    font-family: "comic sans ms";
+    color: white;
+
+   }
+    
+  </style>
+</head>
+
+<body>
+
+  <h1>Comic Sans in a HTML page</h1>
+  <p id="button">Comic Sans MS (also known by its most common name Comic Sans) is a sans-serif typeface designed by Vincent Connare and released in 1994 by Microsoft Corporation. It is a non-connecting script inspired by comic book lettering, intended for use in cartoon speech bubbles, as well as in other casual environments, such as informal documents and children's materials.
+
+The typeface has been supplied with Microsoft Windows since the introduction of Windows 95, initially as a supplemental font in Microsoft Plus! Pack and later in Microsoft Comic Chat. Describing it, Microsoft has explained that "this casual but legible face has proved very popular with a wide variety of people."
+
+Its widespread use, often in situations for which it was not intended, has become the subject of criticism and mockery.
+
+History. </p>
+
+  <button id="button1" class="button" onclick="alerted()">click on me to delete the paragraph</button>
+
+  <button id="button2" class="button" onclick="returnalert()">click on me to get the paragraph back</button>
+  <button id="useless" class="button" onclick="unhide()">useless button</button>
+  <button id="button3" class="button coolbutton" onclick="playbwomp();confetti();">confetti</button>
+  
+
+  <script>
+    var clicked = false 
+    var button3 = false 
+    function alerted(){
+      clicked = true 
+      console.log(clicked);
+      document.getElementById('button').innerText="The comic sans mafia is coming to your location, you have insulted their namesake, you will be erased with all forms of identification burned :-)";
+    }
+    function returnalert(){
+      if (clicked = true){
+        clicked = false 
+        document.getElementById('button').innerText="Comic Sans MS (also known by its most common name Comic Sans) is a sans-serif typeface designed by Vincent Connare and released in 1994 by Microsoft Corporation. It is a non-connecting script inspired by comic book lettering, intended for use in cartoon speech bubbles, as well as in other casual environments, such as informal documents and children's materials.The typeface has been supplied with Microsoft Windows since the introduction of Windows 95, initially as a supplemental font in Microsoft Plus! Pack and later in Microsoft Comic Chat. Describing it, Microsoft has explained that ''this casual but legible face has proved very popular with a wide variety of people.Its widespread use, often in situations for which it was not intended, has become the subject of criticism and mockery. History"
+        
+        console.log(clicked)
+        alert('good choice 👌👍')
+        
+      }
+    }
+    function unhide() {
+      document.getElementById('button3').style.display = "inline-block";
+      var secret = new Audio('Secret.mp3')//wav is also supported
+     secret.play()
+     setTimeout(timedalert,2000)
+    
+    }
+    function timedalert() {
+      alert('A secret has been revealed🔐㊙️');
+    }
+    function playbwomp() {
+    var bwomp = new Audio('bwomp.mp3')
+bwomp.play()
+  }
+    
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js">
+    
+    confetti({
+  particleCount: 100,
+  startVelocity: 30,
+  spread: 360,
+  origin: {
+    x: Math.random(),
+    // since they fall down, start a bit higher than random
+    y: Math.random() - 0.2
+  }
+});
+
+
+    
+ 
+    
+    
+  </script>
+</body>
+
+</html>
